@@ -1,4 +1,4 @@
-local vector2d = {}
+local vector2d = { x = 0, y = 0 }
 vector2d.__index = vector2d
 
 function vector2d:new(x, y)
@@ -6,7 +6,7 @@ function vector2d:new(x, y)
         assert(true, "expected numbers")
     end
 
-    local self = setmetatable({}, vector2d)
+    self = setmetatable({}, vector2d)
     self.x = x or 0.0
     self.y = y or 0.0
 
@@ -15,6 +15,10 @@ end
 
 function vector2d.__add(a, b)
     return vector2d:new(a.x + b.x, a.y + b.y)
+end
+
+function vector2d.__sub(a, b)
+    return vector2d:new(a.x - b.x, a.y - b.y)
 end
 
 function vector2d:tostring()
