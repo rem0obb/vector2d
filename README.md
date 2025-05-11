@@ -104,6 +104,4 @@ love examples
 
 output:
 
-<video width="320" height="240" controls>
-  <source src="assets/examples.webm" type="video/webm">
-</video>
+![](assets/examples.png)
