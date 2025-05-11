@@ -7,6 +7,7 @@ A simple and flexible 2D vector class written in Lua.
 - Create 2D vectors with `x`, `y` components and precomputed `magnitude`
 - Operator overloading:
   - Addition (`+`)
+  - Division (`/`)
   - Subtraction (`-`)
   - Multiplication (`*`)
   - Equality check (`==`)
@@ -15,6 +16,56 @@ A simple and flexible 2D vector class written in Lua.
   - `:isub(vector)` — modifies the current vector by subtracting another
   - `:imul(vector)` — modifies the current vector by multiplying by another
 - Convert a vector to a formatted string with `:tostring()`
+
+## Functions
+
+### vector2d:new(x, y)
+Creates a new vector with the specified x and y values.
+Parameters:
+- x (number): The x-component of the vector.
+- y (number): The y-component of the vector.
+
+Returns:
+- A new vector2d instance.
+
+---
+
+### vector2d:update_magnitude()
+Calculates the magnitude of the vector using the formula:
+√(x² + y²). This is called automatically when creating a new vector or modifying it with operations.
+
+---
+
+### vector2d:normalize()
+Normalizes the vector (scales it to have a magnitude of 1), unless the vector is (0, 0).
+
+Returns:
+- The normalized vector2d instance (modifies the current vector).
+
+---
+
+### In-place Operations
+
+- vector2d:iadd(v)
+  Adds another vector v to the current vector, modifying the original vector.
+
+- vector2d:isub(v)
+  Subtracts another vector v from the current vector, modifying the original vector.
+
+- vector2d:imul(v)
+  Multiplies the current vector by another vector v, modifying the original vector.
+
+- vector2d:idiv(v)
+  Divides the current vector by another vector v, modifying the original vector.
+
+---
+
+### vector2d:tostring()
+Returns the vector as a formatted string in the format:
+(x, y)
+Returns:
+- A string representation of the vector.
+
 
 ## Usage
 
