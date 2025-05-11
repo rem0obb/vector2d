@@ -15,14 +15,9 @@ function vector2d:new(x, y)
     return obj
 end
 
--- formula used to calculate the magnitude : √(x² + y²)
+-- Formula used to calculate the magnitude: √(x² + y²)
 function vector2d:update_magnitude()
-    -- Calculate the magnitude only if the vector is non-zero
-    if self.x == 0 and self.y == 0 then
-        self.magnitude = 0
-    else
-        self.magnitude = math.sqrt(self.x * self.x + self.y * self.y)
-    end
+    self.magnitude = math.sqrt(self.x * self.x + self.y * self.y)
 end
 
 function vector2d:normalize()
@@ -30,12 +25,9 @@ function vector2d:normalize()
     if self.magnitude > 0 then
         self.x = self.x / self.magnitude
         self.y = self.y / self.magnitude
-    else
-        -- Vector is (0, 0), no need to normalize
-        self.x = 0
-        self.y = 0
     end
 
+    vector2d:update_magnitude()
     return self
 end
 

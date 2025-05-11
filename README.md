@@ -91,3 +91,19 @@ print("Magnitude of a:", a.magnitude) -- Output: 5
 -- In-place modification (modifies the object and returns self)
 a:iadd(b):isub(b):imul(b)
 print("Modified a:", a:tostring())
+
+```
+
+## Examples
+
+Using [love2d](https://love2d.org/) I created an example of use, just run love2 in the examples folder
+
+```sh
+love examples
+```
+
+output:
+
+<video width="320" height="240" controls>
+  <source src="assets/examples.webm" type="video/webm">
+</video>
