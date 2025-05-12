@@ -18,8 +18,9 @@ assert(a.x == 4 and a.y == 6, "iadd failed")
 
 a:isub(b)
 assert(a.x == 1 and a.y == 2, "isub failed")
-a:imul(b)
-assert(a.x == 3 and a.y == 8, "imul failed")
+a:imul(2)
+
+assert(a.x == 2 and a.y == 4, "imul failed")
 
 local mag = vector2d:new(3, 4) -- sqrt(3^2 + 4^2) = 5
 assert(math.abs(mag.magnitude - 5.0) < 0.001, "Magnitude calculation failed")

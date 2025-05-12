@@ -17,7 +17,7 @@ end
 
 -- Formula used to calculate the magnitude: √(x² + y²)
 function vector2d:update_magnitude()
-    self.magnitude = math.sqrt(self.x * self.x + self.y * self.y)
+    self.magnitude = math.sqrt(self.x ^ 2 + self.y ^ 2)
 end
 
 function vector2d:normalize()
@@ -45,22 +45,22 @@ function vector2d:isub(v)
     return self
 end
 
-function vector2d:imul(v)
-    self.x = self.x * v.x
-    self.y = self.y * v.y
+function vector2d:imul(scalar)
+    self.x = self.x * scalar
+    self.y = self.y * scalar
     self:update_magnitude()
     return self
 end
 
-function vector2d:idiv(v)
-    self.x = self.x / v.x
-    self.y = self.y / v.y
+function vector2d:idiv(scalar)
+    self.x = self.x / scalar
+    self.y = self.y / scalar
     self:update_magnitude()
     return self
 end
 
-function vector2d.__div(a, b)
-    return vector2d:new(a.x / b.x, a.y / b.y)
+function vector2d.__div(vector, scalar)
+    return vector2d:new(vector.x / scalar, vector.y / scalar)
 end
 
 function vector2d.__add(a, b)
@@ -71,8 +71,8 @@ function vector2d.__sub(a, b)
     return vector2d:new(a.x - b.x, a.y - b.y)
 end
 
-function vector2d.__mul(a, b)
-    return vector2d:new(a.x * b.x, a.y * b.y)
+function vector2d.__mul(vector, scalar)
+    return vector2d:new(vector.x * scalar, vector.y * scalar)
 end
 
 function vector2d.__eq(a, b)

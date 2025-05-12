@@ -79,17 +79,17 @@ local b = vector2d:new(1, 2)
 -- Operator-based (returns new vectors)
 local sum = a + b
 local diff = a - b
-local prod = a * b
+local prod = a * 10
 
 print(sum:tostring())    -- Output: (4.000000, 6.000000)
 print(diff:tostring())   -- Output: (2.000000, 2.000000)
-print(prod:tostring())   -- Output: (3.000000, 8.000000)
+print(prod:tostring())   -- Output: (30.000000, 40.000000)
 
 print(a == vector2d:new(3, 4))  -- Output: true
 print("Magnitude of a:", a.magnitude) -- Output: 5
 
 -- In-place modification (modifies the object and returns self)
-a:iadd(b):isub(b):imul(b)
+a:iadd(b):isub(b):imul(10)
 print("Modified a:", a:tostring())
 
 ```
